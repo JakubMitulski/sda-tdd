@@ -28,43 +28,33 @@ public class CalcServiceSteps {
         actual = calcService.calculate(text);
     }
 
-    @Then("^I get correct result$")
-    public void I_get_correct_result() {
-        Assert.assertEquals(9, actual);
-    }
-
-    @And("^I pass null text value$")
-    public void I_pass_null_text_value() {
+    @And("^I pass null$")
+    public void I_pass_null() {
         text = null;
     }
 
-    @Then("^I get 0 as result$")
-    public void I_get_0_as_result() {
-        Assert.assertEquals(0, actual);
+    @Then("^I get (.*) as result$")
+    public void I_get_value_as_result(int result) {
+        Assert.assertEquals(result, actual);
     }
 
-    @And("^I pass blank text value$")
-    public void I_pass_blank_text_value() {
+    @And("^I pass blank$")
+    public void I_pass_blank() {
         text = "";
     }
 
     @And("^I pass text with letters$")
     public void I_pass_text_with_letters() {
-        text = "3a;2;4;5b";
-    }
-
-    @Then("^I get result for text with letters$")
-    public void I_get_result_for_text_with_letters() {
-        Assert.assertEquals(14, actual);
+        text = "";
     }
 
     @And("^I pass recipe$")
     public void I_pass_recipe() {
-        text = "2 jablka;3 jajka;5 ziemniakow";
+        text = "";
     }
 
-    @Then("^I get result for recipe$")
-    public void I_get_result_for_recipe() {
-        Assert.assertEquals(10, actual);
+    @And("^I pass (.*) value$")
+    public void I_pass_text_value(String text) {
+        this.text = text;
     }
 }
