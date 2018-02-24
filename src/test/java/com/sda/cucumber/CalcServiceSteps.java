@@ -40,7 +40,11 @@ public class CalcServiceSteps {
 
     @Then("^I get 0 as result$")
     public void I_get_0_as_result() {
-        Assert.assertEquals(9, actual);
+        Assert.assertEquals(0, actual);
     }
 
+    @And("^I pass blank text value$")
+    public void I_pass_blank_text_value() {
+        text = "";
+    }
 }
