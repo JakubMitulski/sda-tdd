@@ -57,4 +57,14 @@ public class CalcServiceSteps {
     public void I_get_result_for_text_with_letters() {
         Assert.assertEquals(14, actual);
     }
+
+    @And("^I pass recipe$")
+    public void I_pass_recipe() {
+        text = "2 jablka;3 jajka;5 ziemniakow";
+    }
+
+    @Then("^I get result for recipe$")
+    public void I_get_result_for_recipe() {
+        Assert.assertEquals(10, actual);
+    }
 }
