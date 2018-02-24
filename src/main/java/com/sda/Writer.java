@@ -8,15 +8,12 @@ public class Writer {
     public String sayHello(String name) {
         String[] names = name != null ? name.split(",") : new String[1];
         String nameSection = names.length == 1 ? name : convertToMessage(names);
-
-
         String greeting = "Hello";
-        if (StringUtils.isBlank(name)) {
+
+        if (StringUtils.isBlank(nameSection)) {
             nameSection = "my friend";
         }
-        if (StringUtils.isAllUpperCase(nameSection)) {
-            greeting = StringUtils.upperCase(greeting);
-        }
+
         String output = greeting + ", " + nameSection + "!";
         return isAllUpperCase(names) ? StringUtils.upperCase(output) : output;
     }
@@ -38,4 +35,5 @@ public class Writer {
         return Stream.of(names)
                 .allMatch(e -> StringUtils.isAllUpperCase(e));
     }
+
 }
