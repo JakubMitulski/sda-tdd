@@ -17,3 +17,9 @@ Feature: CalcService
     And I pass blank text value
     When I execute calculate method
     Then I get 0 as result
+
+  Scenario: Should return correct value when mixed with letters text is passed
+    Given I initialize CalcService
+    And I pass text with letters
+    When I execute calculate method
+    Then I get result for text with letters

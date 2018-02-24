@@ -47,4 +47,14 @@ public class CalcServiceSteps {
     public void I_pass_blank_text_value() {
         text = "";
     }
+
+    @And("^I pass text with letters$")
+    public void I_pass_text_with_letters() {
+        text = "3a;2;4;5b";
+    }
+
+    @Then("^I get result for text with letters$")
+    public void I_get_result_for_text_with_letters() {
+        Assert.assertEquals(14, actual);
+    }
 }
