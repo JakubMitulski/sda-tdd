@@ -1,23 +1,28 @@
 import com.sda.Writer;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class WriterTest {
 
+    private Writer writer;
+
+    @Before
+    public void init() {
+        writer = new Writer();
+    }
+
     @Test
-    public  void sayHelloWithGivenNameTest(){
-        Writer writer = new Writer();
+    public void sayHelloWithGivenNameTest() {
         String name = "Kuba";
 
         String result = writer.sayHello(name);
 
-        Assert.assertEquals("Expected hello message is invalid","Hello, Kuba!", result);
+        Assert.assertEquals("Expected hello message is invalid", "Hello, Kuba!", result);
     }
 
     @Test
-    public void sayHelloWithNoNameSpecified(){
-
-        Writer writer = new Writer();
+    public void sayHelloWithNoNameSpecified() {
         String name = "";
         String result = writer.sayHello("");
 
@@ -25,12 +30,20 @@ public class WriterTest {
     }
 
     @Test
-    public void sayHelloWithNullName(){
-        Writer writer = new Writer();
+    public void sayHelloWithNullName() {
         String name = null;
 
         String result = writer.sayHello(name);
 
         Assert.assertEquals("Hello, my friend!", result);
+    }
+
+    @Test
+    public void sayHelloWithCapitalizedNameLetters() {
+        String name = "KUBA";
+
+        String result = writer.sayHello(name);
+
+        Assert.assertEquals("HELLO, " + name + "!", result);
     }
 }

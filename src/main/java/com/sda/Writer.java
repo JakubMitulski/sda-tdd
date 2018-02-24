@@ -1,11 +1,17 @@
 package com.sda;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Writer {
-    public String sayHello(String name){
+    public String sayHello(String name) {
         String nameInMessage = name;
-        if (nameInMessage == null || "".equals(nameInMessage)){
+        String greeting = "Hello";
+        if (nameInMessage == null || "".equals(nameInMessage)) {
             nameInMessage = "my friend";
         }
-        return "Hello, " + nameInMessage + "!";
+        if (StringUtils.isAllUpperCase(nameInMessage)) {
+            greeting = StringUtils.upperCase(greeting);
+        }
+        return greeting + ", " + nameInMessage + "!";
     }
 }
