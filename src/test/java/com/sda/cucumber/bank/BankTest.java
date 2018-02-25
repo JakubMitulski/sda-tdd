@@ -25,7 +25,7 @@ public class BankTest {
 
         //Then
         Assert.assertTrue("Method returned false", result);
-        Assert.assertEquals("User is not present in a bank list",1, bank.getUsers().size());
+        Assert.assertEquals("User is not present in a bank list",1, bank.getNumberOfUsers());
     }
 
     @Test
@@ -38,6 +38,6 @@ public class BankTest {
 
         //Then
         Assert.assertFalse("Method returned true", result);
-        Assert.assertEquals("User is presented in a bank list.", 0, bank.getUsers().size());
+        Assert.assertEquals("User is presented in a bank list.", 0, bank.getNumberOfUsers());
     }
 }
