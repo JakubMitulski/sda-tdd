@@ -92,6 +92,41 @@ public class BankTest {
         //Then
         Assert.assertFalse("Account was created", result);
         Assert.assertEquals("Account is not present", 0, bank.getNumberOfAccounts());
+    }
+
+    @Test
+    public void shouldUpdateAccountAmount(){
+        //Given
+        User user = new User("Jan", "Kowalski");
+        Account account = new Account(0,100);
+        UserService mockUserService = Mockito.mock(UserService.class);
+        AccountService mockAccountService = Mockito.mock(AccountService.class);
+
+        Mockito.when(mockUserService.addUser(Mockito.any(User.class))).thenReturn(true);
+        Mockito.when(mockUserService.isUserPresent(Mockito.any(Integer.class))).thenReturn(true);
+        Mockito.when(mockUserService.getNumberOfUsers()).thenReturn(1);
+        Mockito.when(mockAccountService.addAccount(Mockito.any(Account.class))).thenReturn(true);
+        Mockito.when(mockAccountService.isAccountPresent(Mockito.any(Integer.class))).thenReturn(true);
+        Mockito.when(mockAccountService.getNumberOfAccounts()).thenReturn(1);
+        Mockito.when(mockAccountService.getAccount(Mockito.anyInt())).thenReturn(new Account(0,200));
+
+        bank.setAccountService(mockAccountService);
+        bank.setUserService(mockUserService);
+
+        //When
+        boolean userAddResult = bank.addUser(user);
+        boolean accountAddResult = bank.createAccount(0, account);
+        boolean changeAmountResult = bank.changeAmount(account, 100);
+
+        //Then
+        Assert.assertTrue("User is not present", userAddResult);
+
+        Assert.assertEquals("User is not present", 1, bank.getNumberOfUsers());
+        Assert.assertTrue("Account is not present", accountAddResult);
+        Assert.assertEquals("Account is not present", 1, bank.getNumberOfAccounts());
+
+        Assert.assertTrue("Change amount action failed", changeAmountResult);
+        Assert.assertEquals("Amount of account is not valid", 200, bank.getAccount(0).getAmount());
 
     }
 }

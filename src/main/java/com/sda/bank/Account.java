@@ -26,4 +26,8 @@ public class Account {
     public void setId(int id) {
         this.id = id;
     }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

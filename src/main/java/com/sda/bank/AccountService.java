@@ -22,7 +22,15 @@ public class AccountService {
         return result;
     }
 
+    public Account getAccount(int accountId){
+        throw new UnsupportedOperationException();
+    }
+
     public int getNumberOfAccounts(){
         return accounts.size();
+    }
+
+    public boolean isAccountPresent(int id) {
+        throw new UnsupportedOperationException();
     }
 }
