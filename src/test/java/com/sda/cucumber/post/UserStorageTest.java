@@ -6,7 +6,7 @@ import org.junit.Test;
 public class UserStorageTest {
 
     @Test
-    public void shouldCreateNewUserWithGivenNickname(){
+    public void shouldCreateNewUserWithGivenNickname() {
         //Given
         UserStorage userStorage = new UserStorage();
         String nickname = "qwerty";

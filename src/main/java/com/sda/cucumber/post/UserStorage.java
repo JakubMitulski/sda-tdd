@@ -7,7 +7,7 @@ public class UserStorage {
 
     private List<String> users;
 
-    public UserStorage(){
+    public UserStorage() {
         this.users = new ArrayList<>();
     }
 
