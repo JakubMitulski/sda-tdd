@@ -4,6 +4,7 @@ public class Account {
 
     private int userId;
     private int amount;
+    private int id;
 
     public Account(int userId, int amount) {
         this.userId = userId;
@@ -16,5 +17,13 @@ public class Account {
 
     public int getAmount() {
         return amount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
